@@ -1,4 +1,4 @@
 shape,dim1,dim2,pos1,pos2,color
 rect,200,100,0,0,pink
 circle,50,0,250,50,green
-ellipse,150,50,250,50,blue
+ellipse,150,50,250,150,blue
