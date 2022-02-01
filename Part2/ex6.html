@@ -1,32 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <script src='https://d3js.org/d3.v7.min.js'></script>
+    <script src='https://d3js.org/d3.v7.min.js'></script>
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-<script src='https://d3js.org/d3.v7.min.js'></script>
-<div></div>
-<div></div>
-<div></div>
 
-<script>
-let otherdata = [ {name:'test', val:1, color:"blue"},
- {name:'other', val:2, color:"red"},
- {name:'b', val:3, color:"green"}];
-let paragraph = d3.select("body")
- .selectAll("div")
- .data(otherdata)
- .text(function (d, i) {
- return 'cont: ' + d.name + ', colour: ' + d.color; // return value is used to set the 'text'
-}).style("color", d=>d.color);
+  <div></div>
+  <div></div>
+  <div></div>
 
+<script type="text/javascript" src="ex6.js">
 </script>
-<div style = "float:right">
-  <pre>
-    <code>
-        //Insert Page Code Here
-    </code>
-  </pre>
-</div>
+
+<iframe src="ex6.js">
+</iframe>
+
 </body>
 </html>

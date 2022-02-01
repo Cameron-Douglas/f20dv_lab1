@@ -1,0 +1,66 @@
+iframe{
+  border-radius: 4px;
+  background-color: AliceBlue;
+  position: relative;
+  width: 40%;
+  height: 95%;
+  float:right;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+body{
+  height:100vh;
+}
+h1 {
+  color: DarkSlateGrey;
+  text-align: center;
+  font-family: monospace;
+}
+
+h3 {
+  color: DarkSlateGrey;
+  text-align: center;
+  font-family: monospace;
+}
+button {
+  text-align: center;
+  font-family: monospace;
+  border: 2px solid DarkSlateGrey;
+  background-color: AliceBlue;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+button:hover {
+  background-color: DarkSlateGrey;
+  color: white;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.center {
+  display:flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 5%;
+}
+.center2 {
+  display:flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 10.5%;
+}
+.center3 {
+  display:flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 16%;
+}
+.center5 {
+  display:flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 25%;
+}
+button{
+  border-radius: 4px;
+  padding: 5px;
+  margin: 0 auto;
+  position:relative;
+}
