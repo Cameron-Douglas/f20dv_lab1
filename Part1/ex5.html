@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src='https://d3js.org/d3.v7.min.js'></script>
+</head>
+<body>
+
+<script src='https://d3js.org/d3.v7.min.js'></script>
+
+<script>
+var bodyElement = d3.select("body");
+var div = bodyElement.append("div");
+div.text("Hello World!");
+div.style('color','green')
+// same as
+d3.select("body").append("div").text("Hello World!");
+</script>
+</body>
+</html>
