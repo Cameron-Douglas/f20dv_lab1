@@ -6,11 +6,11 @@ for(let i = 0; i<10; i++){
 		their color to red */
 
  		let newdiv = d3.select("body").append('div').style('color','red');
- 		newdiv.text(i);
+ 		newdiv.text(i+1);
     }
     else{
 		//Add the numbers from 5 to 9 and change their color to green
     let newdiv = d3.select("body").append('div').style('color','green');
- 		newdiv.text(i);
+ 		newdiv.text(i+1);
     }
  }

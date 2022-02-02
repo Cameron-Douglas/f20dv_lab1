@@ -5,11 +5,20 @@ const margin = 40;
 const xMax = xSize - margin*2;
 const yMax = ySize - margin*2;
 
+//Create variables for slider elements
+
+var slider = document.getElementById("slider");
+
+var val = slider.value;
+
+var multiplier = document.getElementById("Multiplier");
+multiplier.innerHTML = slider.value;
+
 //Create Random Points
 
 const numPoints = 100;
 const dataSet = [];
-for (let i = 0; i < numPoints; i++) { dataSet.push( {x: i/100, y: Math.sin( 6.2 * i/100 ) } ); }
+for (let i = 0; i < numPoints; i++) { dataSet.push( {x: i/100, y: Math.sin( val * i/100 ) } ); }
 
 //Define the function plotGraph which takes in the dataSet
 
@@ -77,4 +86,35 @@ so the plotted data fits perfectly */
    );
 	}
 
+//Call the plotGraph() function
+
 plotGraph(dataSet);
+
+//Placeholder array for exiting the SVG
+
+var arr = [1];
+
+//Function updatePath, removes the old CSV and then calls the plotGraph() method again
+
+function updatePath(data){
+  if(arr !== []){
+    arr.pop();
+  }
+  var p = d3.select("body")
+    .selectAll("svg")
+    .data(arr)
+    .exit()
+    .remove();
+
+  plotGraph(data);
+}
+
+//When the slider is updated, update the value val and then recreate the dataset and call update path with the new data
+
+slider.oninput = function() {
+  val = this.value;
+  multiplier.innerHTML = this.value;
+  const dataSet = [];
+  for (let i = 0; i < numPoints; i++) { dataSet.push( {x: i/100, y: Math.sin( val * i/100 ) } ); }
+  updatePath(dataSet);
+}
