@@ -7,13 +7,21 @@ PassengerId,Pclass,Name,Sex,Age,SibSp,Parch,Ticket,Fare,Cabin,Embarked
 895,3,"Wirz, Mr. Albert",male,27,0,0,315154,8.6625,,S
 */
 
+//Use the d3.csv function to import the csv from the link defined above which returns a promise
+
 d3.csv(titaniccsv, function(data) {
 	return data;
+
+/*Using the then() function as this ensures that execution occurs in the
+correct order as Javascript only runs on one thread*/
+
 }).then(function(d){
 	let mrCount = 0;
   let mrsCount = 0;
   let maleCount = 0;
   let femaleCount = 0;
+
+//Count the number of each instance
 
   for(let i = 0; i<d.length; i++){
     if(d[i].Name.includes("Mr.")){
@@ -29,6 +37,9 @@ d3.csv(titaniccsv, function(data) {
       femaleCount++;
     };
   };
+
+//Add the results to a div
+
 	let paragraph = d3.select("body")
 	 .selectAll("div")
 	 .text("Mr: " + mrCount + "," + " Mrs: " + mrsCount + "," + " Male: " + maleCount + "," + " Female: " + femaleCount);

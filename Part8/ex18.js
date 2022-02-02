@@ -2,6 +2,8 @@ let barData = 'https://raw.githubusercontent.com/cd94/f20dv_lab1/main/barData2.c
 
 const data = [];
 
+//Imports CSV as demonstrated before using then() and promise callbacks
+
 d3.csv(barData, function(i) {
   return i;
 }).then(function(d){
@@ -9,24 +11,28 @@ d3.csv(barData, function(i) {
     data.push(parseInt(d[i].data));
   }
 
-  console.log(data);
+//Draws the bar chart as done in ex17.js 
+
   const width = 500;
   const barHeight = 20;
   const margin = 1;
+
   var scale = d3.scaleLinear()
-  .domain([d3.min(data), d3.max(data)])
-  .range([50, 500]);
+    .domain([d3.min(data), d3.max(data)])
+    .range([50, 500]);
+
   var svg = d3.select("body")
-  .append("svg")
-  .attr("width", width)
-  .attr("height", barHeight * data.length);
+    .append("svg")
+    .attr("width", width)
+    .attr("height", barHeight * data.length);
+
   var g = svg.selectAll("g")
-  .data(data)
-  .enter()
-  .append("g")
-  .attr("transform", function (d, i) {
-    return "translate(0," + i * barHeight + ")";
-  });
+    .data(data)
+    .enter()
+    .append("g")
+    .attr("transform", function (d, i) {
+      return "translate(0," + i * barHeight + ")";
+    });
 
   g.append("rect")
   .attr("width", function (d) {

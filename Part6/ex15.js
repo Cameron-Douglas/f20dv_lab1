@@ -8,6 +8,8 @@ ne,serum_sodium,sex,smoking,time,DEATH_EVENT
 50,1,111,0,20,0,210000,1.9,137,1,0,7,1
 */
 
+/*Imports the data and draws the bar chart as described in ex14.js */
+
 d3.csv(heartfailurecsv, function(data) {
  return data
 }).then(function(d){
@@ -45,6 +47,7 @@ d3.csv(heartfailurecsv, function(data) {
    .append("svg")
    .attr("width", width)
    .attr("height", barHeight * counts.length);
+
   var bar = graph.selectAll("g")
    .data(counts)
    .enter()
@@ -53,7 +56,8 @@ d3.csv(heartfailurecsv, function(data) {
    return "translate(0," + i * barHeight + ")";
    });
 
-
+/*When appending the rect elements, the color is slsected based on the value from the csv
+if the value is >100 but <150, the bar is orange, >150 it is red and <100 it is green*/
 
   bar.append("rect")
    .attr("width", function(d) {

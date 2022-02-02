@@ -1,3 +1,6 @@
+/* Places the code from ex18.js in a function barChart(link) which takes a link to the CSV as a parameter,
+this can then be called multiple times with different datasets to produce two bar charts side by side */
+
 function barChart(link){
   let barData = link;
 
@@ -55,6 +58,8 @@ function barChart(link){
 
   })
  };
+
+//Calling the barChart function with two datasets
 
  barChart("https://raw.githubusercontent.com/cd94/f20dv_lab1/main/barData2.csv");
 

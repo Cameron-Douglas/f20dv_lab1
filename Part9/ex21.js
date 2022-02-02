@@ -6,14 +6,20 @@ const leftLabels = [];
 d3.csv(barData, function(i) {
   return i;
 }).then(function(d){
-  for(let i = 0; i<d.length; i++){
-    data.push(parseInt(d[i].data));
+
+/*Adds data to the data arry and then adds the number of elements of the data array to the leftLabels array
+i.e. if data has 5 elements, leftLabels will contain [1,2,3,4,5] */
+
+for(let i = 0; i<d.length; i++){
+  data.push(parseInt(d[i].data));
 }
 
 for(let i = 0; i<data.length; i++){
   leftLabels.push(i+1);
 }
-console.log(leftLabels);
+
+//Create the bar chart as before
+
   const width = 600;
   const barHeight = 20;
   const scaleFactor = 0.5;
@@ -60,6 +66,8 @@ console.log(leftLabels);
   .style('text-anchor', 'end')
   .text(function (d) { return d; });
 
+//Creates two scales for the two axes
+
 var scale1 = d3.scaleLinear()
    .domain([0, d3.max(data)])
    .range([0,d3.max(data)*scaleFactor]);
@@ -67,7 +75,9 @@ var scale1 = d3.scaleLinear()
 var scale2 = d3.scaleLinear()
   .domain([0, d3.max(leftLabels) - 1])
   .range([0,(d3.max(leftLabels)-1)*barHeight]);
-  // Add scales to axis
+
+//Scale the axes and define the number of ticks
+
 var x_axis = d3.axisBottom()
  .scale(scale1)
  .ticks(20);
@@ -76,10 +86,12 @@ var y_axis = d3.axisLeft()
   .scale(scale2)
   .ticks(5);
 
+//Append the two axes to the SVG and set their position
+
 svg.append("g")
   .call(x_axis).attr("transform", "translate(" + 40 + "," + (data.length*barHeight+10) +")");
 
-  svg.append("g")
-      .call(y_axis).attr("transform", "translate(" + 30 + "," + 10 +")");
+svg.append("g")
+    .call(y_axis).attr("transform", "translate(30,10)");
 
 });

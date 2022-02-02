@@ -16,12 +16,17 @@ d3.csv(svgscene, function(data) {
      .attr("height", 400)
      .style("border", '1px solid green');
 
+let arr = [1];
+
  for(let i = 0; i<d.length; i++){
+
+//Uses the switch case as before, but this time uses the enter function to add the SVG elements
+
 	switch(d[i].shape){
   	case "rect":
     var rect = d3.select("svg")
     .selectAll("p")
-    .data(d)
+    .data(arr)
     .enter()
        .append("rect")
        .attr("x", d[i].pos1)
@@ -34,7 +39,7 @@ d3.csv(svgscene, function(data) {
     case "circle":
     var circle = d3.select("svg")
       .selectAll("p")
-      .data(d)
+      .data(arr)
       .enter()
          .append("circle")
          .attr("cx", d[i].pos1)
@@ -46,7 +51,7 @@ d3.csv(svgscene, function(data) {
     case "ellipse":
     var ellipse = d3.select("svg")
       .selectAll("p")
-      .data(d)
+      .data(arr)
       .enter()
          .append("ellipse")
          .attr("cx", d[i].pos1)
@@ -59,7 +64,7 @@ d3.csv(svgscene, function(data) {
      case "line":
      var line = d3.select("svg")
      .selectAll("p")
-     .data(d)
+     .data(arr)
      .enter()
       .append("line")
        .attr("x1", d[i].pos1)
@@ -67,12 +72,14 @@ d3.csv(svgscene, function(data) {
        .attr("y1", d[i].dim1)
        .attr("y2", d[i].dim2)
        .attr("stroke", d[i].color)
-       .attr("stroke-width",2);
+       .attr("stroke-width",3);
 				break;
 		}
   }
-  data = d;
+  data = arr;
 });
+
+//UpdateEnter() Function is called when the enter button is pressed and enters an ellipse to the SVG
 
 function updateEnter(){
   var ellipse = d3.select("svg")
@@ -87,11 +94,12 @@ function updateEnter(){
        .attr("fill", "purple");
   };
 
-var myData = [1,2,3,4];
+//UpdateExit() Function is called when the exit button is pressed and exits the ellipse created by the UpdateEnter() function
+
 function updateExit(){
   var p = d3.select("svg")
     .selectAll("ellipse")
-    .data(myData)
+    .data(data)
     .exit()
     .remove();
   };

@@ -8,6 +8,8 @@ ne,serum_sodium,sex,smoking,time,DEATH_EVENT
 50,1,111,0,20,0,210000,1.9,137,1,0,7,1
 */
 
+//Import CSV data as described previously
+
 d3.csv(heartfailurecsv, function(data) {
  return data
 }).then(function(d){
@@ -17,6 +19,8 @@ d3.csv(heartfailurecsv, function(data) {
   let sixtyOneHundered= 0;
 
   let counts = [];
+
+//Count instances and push to an array
 
   for(let i = 0; i<d.length; i++){
     if(d[i].age >= 1 && d[i].age <= 30 ){
@@ -37,14 +41,14 @@ d3.csv(heartfailurecsv, function(data) {
   counts.push(fourtySixty);
   counts.push(sixtyOneHundered);
 
-  console.log(counts);
+//Select all p elements and enter the results
 
   var p = d3.select("body")
- .selectAll("p")
- .data(counts)
- .enter()
- .append('p')
- .text(function (d, i) {
- return d;
- 	});
+     .selectAll("p")
+     .data(counts)
+     .enter()
+     .append('p')
+     .text(function (d, i) {
+         return d;
+     	});
  });

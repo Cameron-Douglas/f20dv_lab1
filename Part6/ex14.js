@@ -8,6 +8,8 @@ ne,serum_sodium,sex,smoking,time,DEATH_EVENT
 50,1,111,0,20,0,210000,1.9,137,1,0,7,1
 */
 
+/*Loads the heart faliure CSV as done in the previous example*/
+
 d3.csv(heartfailurecsv, function(data) {
  return data
 }).then(function(d){
@@ -37,16 +39,19 @@ d3.csv(heartfailurecsv, function(data) {
   counts.push(fourtySixty);
   counts.push(sixtyOneHundered);
 
-  console.log(counts);
-
 	var width = 400;
   var scaleFactor = 2;
   var barHeight = 30;
-  var graph = d3.select("body")
 
+//Creates an SVG within the body
+
+  var graph = d3.select("body")
    .append("svg")
    .attr("width", width)
    .attr("height", barHeight * counts.length);
+
+//Enters the required number of g elements
+
   var bar = graph.selectAll("g")
    .data(counts)
    .enter()
@@ -54,11 +59,17 @@ d3.csv(heartfailurecsv, function(data) {
    .attr("transform", function(d, i) {
    return "translate(0," + i * barHeight + ")";
    });
+
+//Appends rect SVG elements to the g elements and sets their width the width denoted from the heart failure data csv
+
   bar.append("rect")
    .attr("width", function(d) {
    return d * scaleFactor;
    })
    .attr("height", barHeight - 1);
+
+//Appends the data value to the end of the bar
+
   bar.append("text")
    .attr("x", function(d) { return (d*scaleFactor); })
    .attr("y", barHeight / 2)
