@@ -4,6 +4,7 @@ let num = [10, 50, 100, 200];
 /*Select all div elements and set their text to be the values in the num array
 Change the color of the text depending on the value*/
 
+
 let paragraph = d3.select("body")
  .selectAll("div")
  .data(num)
