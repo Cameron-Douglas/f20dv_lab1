@@ -30,7 +30,7 @@ const radius = Math.min(xSize, ySize) / 2;
 
 var color = d3.scaleLinear().domain([d3.min(data),d3.max(data)]).range(["blue", "red"]);
 
-// Generate the pie and do not sort (so that the elements are added in the order they are in in the data array)
+//Generate the pie and do not sort (so that the elements are added in the order they are in in the data array)
 
 var pie = d3.pie().sort(null);
 

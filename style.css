@@ -16,11 +16,17 @@ h1 {
   font-family: monospace;
 }
 
-h3 {
+h2 {
   color: DarkSlateGrey;
   text-align: center;
   font-family: monospace;
 }
+h3{
+  color: LightSlateGrey;
+  text-align: center;
+  font-family: monospace;
+}
+
 button {
   text-align: center;
   font-family: monospace;
