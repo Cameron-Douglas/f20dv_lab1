@@ -64,6 +64,7 @@ for(let i = 0; i<data.length; i++){
   .attr("y", barHeight / 2)
   .attr("dy", ".35em")
   .style('text-anchor', 'end')
+  .style('font-family','monospace')
   .text(function (d) { return d; });
 
 //Creates two scales for the two axes

@@ -114,3 +114,35 @@ div{
 .b{
   grid-column: 2;
 }
+.dataViewer{
+  margin-bottom=100px;
+}
+.green{
+  -webkit-appearance: none;
+  background: DarkSeaGreen;
+}
+.green::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #228B22;
+  cursor: pointer;
+}
+.red{
+  -webkit-appearance: none;
+  background: LightCoral;
+}
+.red::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #DC143C;
+  cursor: pointer;
+}
+.label{
+  font-family: monospace;
+  font-size: 16px;
+  color: DarkSlateGrey;
+}
