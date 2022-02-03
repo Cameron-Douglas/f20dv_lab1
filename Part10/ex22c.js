@@ -1,7 +1,7 @@
 //Set Dimensions
 
-var xSize = 400; var ySize = 400;
-const margin = 40;
+var xSize = 325; var ySize = 325;
+const margin = 30;
 const xMax = xSize - margin*2;
 const yMax = ySize - margin*2;
 
@@ -137,8 +137,10 @@ slider1.oninput = function() {
   val1 = this.value;
   multiplier1.innerHTML = this.value;
   const dataSet1 = [];
+  const dataSet2 = [];
   const dataSet3 = [];
   for (let i = 0; i < numPoints; i++) { dataSet1.push( {x: i/100, y: Math.sin( val1 * i/100 ) } ); }
+  for (let i = 0; i < numPoints; i++) { dataSet2.push( {x: i/100, y: Math.sin( val2 * i/100 ) } ); }
   for (let i = 0; i < numPoints; i++) { dataSet3.push( {x: dataSet1[i].x + dataSet2[i].x, y:dataSet1[i].y + dataSet2[i].y }); }
   updatePath(dataSet1,"a");
   updatePath(dataSet3,"c");
@@ -147,8 +149,10 @@ slider1.oninput = function() {
 slider2.oninput = function() {
   val2 = this.value;
   multiplier2.innerHTML = this.value;
+  const dataSet1 = [];
   const dataSet2 = [];
   const dataSet3 = [];
+  for (let i = 0; i < numPoints; i++) { dataSet1.push( {x: i/100, y: Math.sin( val1 * i/100 ) } ); }
   for (let i = 0; i < numPoints; i++) { dataSet2.push( {x: i/100, y: Math.sin( val2 * i/100 ) } ); }
   for (let i = 0; i < numPoints; i++) { dataSet3.push( {x: dataSet1[i].x + dataSet2[i].x, y:dataSet1[i].y + dataSet2[i].y }); }
   updatePath(dataSet2,"b");

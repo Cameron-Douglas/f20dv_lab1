@@ -1,16 +1,20 @@
+//Get slider and data input elements and their initial values
 
 const dataSet = [];
 let leftLabels = [];
 let val = document.getElementById("input").value;
 
+//Counter arrays for entering and exiting
+
 let counter1 = [1];
 let counter2 = [1,2];
 let i = 0;
 
+//Gets the new value from the input and pushes it to the data array, clears the current display of the values in the dataset and updates it, then calls updateChart
+
 function whenPressed(){
   val = document.getElementById("input").value;
   dataSet.push(parseInt(val));
-  console.log(dataSet[i]);
 
   var p = d3.select("div")
     .selectAll("span")
@@ -32,11 +36,9 @@ function whenPressed(){
   updateChart(dataSet);
 }
 
-
-/*Adds data to the data arry and then adds the number of elements of the data array to the leftLabels array
-i.e. if data has 5 elements, leftLabels will contain [1,2,3,4,5] */
-
 let arr = [0];
+
+//Update Chart removes the old chart from the SVG and then calls draw chart to append a new one
 
 function updateChart(data){
   if(arr !== []){
@@ -51,6 +53,7 @@ function updateChart(data){
   drawChart(data);
 }
 
+//Draws the chart as described previously.
 
 function drawChart(data){
 
@@ -138,7 +141,3 @@ function drawChart(data){
   svg.append("g")
       .call(y_axis).attr("transform", "translate(30,10)");
 };
-
-if(dataSet.length != 0){
-  drawChart(dataSet);
-}

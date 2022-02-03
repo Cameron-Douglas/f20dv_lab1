@@ -110,7 +110,7 @@ function drawChart(data){
       return d*scaleFactor;
     })
     .attr('fill', function(d){
-      if(d < val1){
+      if(d <= val1){
         return "#228B22";
       } else if(d >= val2){
         return "#DC143C";

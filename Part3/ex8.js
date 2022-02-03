@@ -6,7 +6,7 @@ spans equal to the number of elements in the data array. Then sets the color of 
 depending on wether it contains a character or a number*/
 
 var span = d3.select("body")
- .selectAll("p")
+ .selectAll("span")
  .data(myData)
  .enter()
  .append('span')
