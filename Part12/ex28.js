@@ -23,9 +23,9 @@ function barChart(link, coloring){
     leftLabels.push(i+1);
   }
 
-    const width = 600;
+    const width = 450;
     const barHeight = 20;
-    const scaleFactor = 0.5;
+    const scaleFactor = 0.4;
     const margin = 1;
 
     var scale = d3.scaleLinear()
@@ -91,7 +91,7 @@ var myColor1 = d3.scaleLinear().domain([d3.min(leftLabels),d3.max(leftLabels)]).
 
   var x_axis = d3.axisBottom()
    .scale(scale1)
-   .ticks(20);
+   .ticks(10);
 
   var y_axis = d3.axisLeft()
     .scale(scale2)

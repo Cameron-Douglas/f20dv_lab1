@@ -15,12 +15,17 @@ const svg = d3.select("body")
 
 //Declares placeholder array and integer to aid with enter and exiting
 
-let arr = [0];
+let arr = [];
 let i = 0;
 
 //Function updateEnter() is called on button press and adds the next circle in the data array
 
 function updateEnter(){
+
+  if(arr.length < data.length){
+    arr.push(i);
+  }
+
   const g = svg.selectAll("g")
   .data(arr)
   .enter()
@@ -43,9 +48,6 @@ function updateEnter(){
 
   i++;
 
-  if(arr.length < data.length){
-    arr.push(i);
-  }
 }
 
 //Function updateExit() is called on button press and removes the most recently added circle
@@ -63,7 +65,7 @@ function updateExit(){
     .remove();
 
   if(arr.length == 0){
-    arr = [0];
+    arr = [];
     i = 0;
   }
 }
