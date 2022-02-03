@@ -25,6 +25,8 @@ function whenPressed(){
     .append()
     .text(function(d) {return " " + dataSet[i] + " "  });
 
+    document.getElementById('input').value = '';
+
   i++;
   counter1.push(i);
   updateChart(dataSet);
